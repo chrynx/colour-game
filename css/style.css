@@ -11,7 +11,7 @@ body,button,h1,h2,h3,h4,h5,h6,p {
 }
 /* local */
 .top {
-  background-color: dodgerBlue;
+  background-color: darkSlateGrey;
   border-bottom: 2px solid black;
   height: 15vh;
   display: flex;
@@ -46,6 +46,10 @@ body,button,h1,h2,h3,h4,h5,h6,p {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0.5;
+}
+.first:hover, .second:hover, .third:hover, .fourth:hover, .fifth:hover, .sixth:hover {
+  opacity: 1;
 }
 .first {
   background-color: red;

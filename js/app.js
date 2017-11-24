@@ -23,7 +23,6 @@ $(() => {
     numberArray.push(fourth);
     numberArray.push(fifth);
     numberArray.push(sixth);
-    console.log(numberArray);
     $first.css({'background-color': `rgb(${first[0]},${first[1]},${first[2]})`});
     $second.css({'background-color': `rgb(${second[0]},${second[1]},${second[2]})`});
     $third.css({'background-color': `rgb(${third[0]},${third[1]},${third[2]})`});
@@ -31,7 +30,6 @@ $(() => {
     $fifth.css({'background-color': `rgb(${fifth[0]},${fifth[1]},${fifth[2]})`});
     $sixth.css({'background-color': `rgb(${sixth[0]},${sixth[1]},${sixth[2]})`});
     const chosenColor = numberArray[Math.floor(Math.random() * 6)];
-    console.log(chosenColor);
     $r.text(chosenColor[0]);
     $g.text(chosenColor[1]);
     $b.text(chosenColor[2]);
@@ -39,61 +37,73 @@ $(() => {
   chooseColours();
   // ---------button clicks under here ------------
   $first.on('click', () => {
-    console.log('first div');
-    console.log($first[0].style.backgroundColor);
-    console.log($('.test').text());
     if($('.test').text() === $first[0].style.backgroundColor){
       $first.text('WIN');
+      $second.css({'visibility': 'hidden'});
+      $third.css({'visibility': 'hidden'});
+      $fourth.css({'visibility': 'hidden'});
+      $fifth.css({'visibility': 'hidden'});
+      $sixth.css({'visibility': 'hidden'});
     } else {
       $first.text('LOSE');
     }
   });
   $second.on('click', () => {
-    console.log('second div');
-    console.log($second[0].style.backgroundColor);
-    console.log($('.test').text());
     if($('.test').text() === $second[0].style.backgroundColor){
       $second.text('WIN');
+      $first.css({'visibility': 'hidden'});
+      $third.css({'visibility': 'hidden'});
+      $fourth.css({'visibility': 'hidden'});
+      $fifth.css({'visibility': 'hidden'});
+      $sixth.css({'visibility': 'hidden'});
     } else {
       $second.text('LOSE');
     }
   });
   $third.on('click', () => {
-    console.log('third div');
-    console.log($third[0].style.backgroundColor);
-    console.log($('.test').text());
     if($('.test').text() === $third[0].style.backgroundColor){
       $third.text('WIN');
+      $first.css({'visibility': 'hidden'});
+      $second.css({'visibility': 'hidden'});
+      $fourth.css({'visibility': 'hidden'});
+      $fifth.css({'visibility': 'hidden'});
+      $sixth.css({'visibility': 'hidden'});
     } else {
       $third.text('LOSE');
     }
   });
   $fourth.on('click', () => {
-    console.log('fourth div');
-    console.log($fourth[0].style.backgroundColor);
-    console.log($('.test').text());
     if($('.test').text() === $fourth[0].style.backgroundColor){
       $fourth.text('WIN');
+      $second.css({'visibility': 'hidden'});
+      $third.css({'visibility': 'hidden'});
+      $first.css({'visibility': 'hidden'});
+      $fifth.css({'visibility': 'hidden'});
+      $sixth.css({'visibility': 'hidden'});
     } else {
       $fourth.text('LOSE');
     }
   });
   $fifth.on('click', () => {
-    console.log('fifth div');
-    console.log($fifth[0].style.backgroundColor);
-    console.log($('.test').text());
     if($('.test').text() === $fifth[0].style.backgroundColor){
       $fifth.text('WIN');
+      $second.css({'visibility': 'hidden'});
+      $third.css({'visibility': 'hidden'});
+      $fourth.css({'visibility': 'hidden'});
+      $first.css({'visibility': 'hidden'});
+      $sixth.css({'visibility': 'hidden'});
     } else {
       $fifth.text('LOSE');
     }
   });
   $sixth.on('click', () => {
-    console.log('sixth div');
-    console.log($sixth[0].style.backgroundColor);
-    console.log($('.test').text());
     if($('.test').text() === $sixth[0].style.backgroundColor){
       $sixth.text('WIN');
+      $second.css({'visibility': 'hidden'});
+      $third.css({'visibility': 'hidden'});
+      $fourth.css({'visibility': 'hidden'});
+      $fifth.css({'visibility': 'hidden'});
+      $first.css({'visibility': 'hidden'});
     } else {
       $sixth.text('LOSE');
     }
@@ -107,6 +117,12 @@ $(() => {
     $fourth.text('');
     $fifth.text('');
     $sixth.text('');
+    $first.css({'visibility': 'visible'});
+    $second.css({'visibility': 'visible'});
+    $third.css({'visibility': 'visible'});
+    $fourth.css({'visibility': 'visible'});
+    $fifth.css({'visibility': 'visible'});
+    $sixth.css({'visibility': 'visible'});
   });
   //=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=
 });
