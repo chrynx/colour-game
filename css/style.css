@@ -43,6 +43,9 @@ body,button,h1,h2,h3,h4,h5,h6,p {
   width: 20vh;
   border: 2px solid black;
   border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .first {
   background-color: red;
@@ -61,4 +64,9 @@ body,button,h1,h2,h3,h4,h5,h6,p {
 }
 .sixth {
   background-color: gold;
+}
+.b {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
