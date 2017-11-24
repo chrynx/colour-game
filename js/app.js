@@ -8,34 +8,35 @@ $(() => {
   const $r = $('.red');
   const $g = $('.green');
   const $b = $('.blue');
-  const numberArray = [];
-  const first = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
-  const second = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
-  const third = [Math.floor(Math.random() *  255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
-  const fourth = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
-  const fifth = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
-  const sixth = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
-  numberArray.push(first);
-  numberArray.push(second);
-  numberArray.push(third);
-  numberArray.push(fourth);
-  numberArray.push(fifth);
-  numberArray.push(sixth);
-  console.log(numberArray);
-  $first.css({'background-color': `rgb(${first[0]},${first[1]},${first[2]})`});
-  $second.css({'background-color': `rgb(${second[0]},${second[1]},${second[2]})`});
-  $third.css({'background-color': `rgb(${third[0]},${third[1]},${third[2]})`});
-  $fourth.css({'background-color': `rgb(${fourth[0]},${fourth[1]},${fourth[2]})`});
-  $fifth.css({'background-color': `rgb(${fifth[0]},${fifth[1]},${fifth[2]})`});
-  $sixth.css({'background-color': `rgb(${sixth[0]},${sixth[1]},${sixth[2]})`});
-  const chosenColor = numberArray[Math.floor(Math.random() * 6)];
-  console.log(chosenColor);
-  $r.text(chosenColor[0]);
-  $g.text(chosenColor[1]);
-  $b.text(chosenColor[2]);
-
-
-
+  const $resetButton = $('.newColour');
+  const chooseColours = () => {
+    const numberArray = [];
+    const first = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
+    const second = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
+    const third = [Math.floor(Math.random() *  255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
+    const fourth = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
+    const fifth = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
+    const sixth = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
+    numberArray.push(first);
+    numberArray.push(second);
+    numberArray.push(third);
+    numberArray.push(fourth);
+    numberArray.push(fifth);
+    numberArray.push(sixth);
+    console.log(numberArray);
+    $first.css({'background-color': `rgb(${first[0]},${first[1]},${first[2]})`});
+    $second.css({'background-color': `rgb(${second[0]},${second[1]},${second[2]})`});
+    $third.css({'background-color': `rgb(${third[0]},${third[1]},${third[2]})`});
+    $fourth.css({'background-color': `rgb(${fourth[0]},${fourth[1]},${fourth[2]})`});
+    $fifth.css({'background-color': `rgb(${fifth[0]},${fifth[1]},${fifth[2]})`});
+    $sixth.css({'background-color': `rgb(${sixth[0]},${sixth[1]},${sixth[2]})`});
+    const chosenColor = numberArray[Math.floor(Math.random() * 6)];
+    console.log(chosenColor);
+    $r.text(chosenColor[0]);
+    $g.text(chosenColor[1]);
+    $b.text(chosenColor[2]);
+  };
+  chooseColours();
   // ---------button clicks under here ------------
   $first.on('click', () => {
     console.log('first div');
@@ -98,6 +99,14 @@ $(() => {
     }
   });
 
-
+  $resetButton.on('click', () => {
+    chooseColours();
+    $first.text('');
+    $second.text('');
+    $third.text('');
+    $fourth.text('');
+    $fifth.text('');
+    $sixth.text('');
+  });
   //=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=
 });
