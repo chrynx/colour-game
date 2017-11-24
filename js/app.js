@@ -9,6 +9,35 @@ $(() => {
   const $g = $('.green');
   const $b = $('.blue');
   const $resetButton = $('.newColour');
+  const $easy = $('.easy');
+  const $hard = $('.hard');
+  let mode = false;
+  $easy.on('click', () => {
+    mode = true;
+    easy();
+    chooseColours(mode);
+  });
+  $hard.on('click', () => {
+    mode = false;
+    hard();
+    chooseColours(mode);
+  });
+  const easy = () => {
+    $first.css({'visibility': 'visible'});
+    $second.css({'visibility': 'visible'});
+    $third.css({'visibility': 'visible'});
+    $fourth.css({'visibility': 'hidden'});
+    $fifth.css({'visibility': 'hidden'});
+    $sixth.css({'visibility': 'hidden'});
+  };
+  const hard = () => {
+    $first.css({'visibility': 'visible'});
+    $second.css({'visibility': 'visible'});
+    $third.css({'visibility': 'visible'});
+    $fourth.css({'visibility': 'visible'});
+    $fifth.css({'visibility': 'visible'});
+    $sixth.css({'visibility': 'visible'});
+  };
   const chooseColours = () => {
     const numberArray = [];
     const first = [Math.floor(Math.random() * 255),Math.floor(Math.random() * 255),Math.floor(Math.random() * 255)];
@@ -29,13 +58,27 @@ $(() => {
     $fourth.css({'background-color': `rgb(${fourth[0]},${fourth[1]},${fourth[2]})`});
     $fifth.css({'background-color': `rgb(${fifth[0]},${fifth[1]},${fifth[2]})`});
     $sixth.css({'background-color': `rgb(${sixth[0]},${sixth[1]},${sixth[2]})`});
-    const chosenColor = numberArray[Math.floor(Math.random() * 6)];
-    $r.text(chosenColor[0]);
-    $g.text(chosenColor[1]);
-    $b.text(chosenColor[2]);
+    if(mode === true){
+      console.log('easy mode');
+      const chosenColor = numberArray[Math.floor(Math.random() * 3)];
+      $fourth.css({'visibility': 'hidden'});
+      $fifth.css({'visibility': 'hidden'});
+      $sixth.css({'visibility': 'hidden'});
+      $r.text(chosenColor[0]);
+      $g.text(chosenColor[1]);
+      $b.text(chosenColor[2]);
+    } else {
+      console.log('hard mode');
+      const chosenColor = numberArray[Math.floor(Math.random() * 6)];
+      $r.text(chosenColor[0]);
+      $g.text(chosenColor[1]);
+      $b.text(chosenColor[2]);
+    }
   };
-  chooseColours();
+  chooseColours(mode);
+
   // ---------button clicks under here ------------
+
   $first.on('click', () => {
     if($('.test').text() === $first[0].style.backgroundColor){
       $first.text('WIN');
@@ -110,7 +153,8 @@ $(() => {
   });
 
   $resetButton.on('click', () => {
-    chooseColours();
+    mode = false;
+    chooseColours(mode);
     $first.text('');
     $second.text('');
     $third.text('');
@@ -124,5 +168,7 @@ $(() => {
     $fifth.css({'visibility': 'visible'});
     $sixth.css({'visibility': 'visible'});
   });
+
+
   //=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=
 });
